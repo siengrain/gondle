@@ -1,3 +1,5 @@
+#!/bin/env python
+
 import random
 
 def getw():
@@ -30,7 +32,7 @@ def word(palabra):
                 break
             while i != 5:
                 if guess[i] == palabra[i]:
-                    guess = guess.replace(guess[i], guess[i].upper())
+                    guess = guess[:i] + guess[i].upper() + guess[i+1:]
                 i += 1
             print(guess)
             hp -= 1
