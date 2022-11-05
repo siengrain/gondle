@@ -1,6 +1,7 @@
-#!/bin/env python
+#!/bin/env python3
 
 import random
+import dictionary
 
 def getw():
     number = random.randrange(8915)
@@ -9,7 +10,7 @@ def getw():
     lines = f.readlines()
 
     palabra = lines[number][0:5]
-
+    
     f.close()
     return palabra
 
@@ -33,6 +34,7 @@ def word(palabra):
             i = 0 
             if guess == palabra:
                 print('\nU won!\n\n')
+                print(meaning)
                 break
             while i != 5:
                 if guess[i] == palabra[i]:
@@ -47,8 +49,10 @@ def word(palabra):
         print(msg)
     if hp == 0:
         print('u lost! the word was ' + palabra + ' :(')
+        print(meaning)
 hint = '_ _ _ _ _'
 print('\n' + hint + '\n\n')
     
 palabra = getw()
+meaning = dictionary.means(palabra)
 word(palabra)
